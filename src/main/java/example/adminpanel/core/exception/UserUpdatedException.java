@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Andrey Gorbunov
+ */
+
 package example.adminpanel.core.exception;
 
 import org.springframework.http.HttpStatus;

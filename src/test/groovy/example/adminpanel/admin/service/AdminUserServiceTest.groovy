@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Andrey Gorbunov
+ */
+
 package example.adminpanel.admin.service
 
 import example.adminpanel.config.MongoTestConfigContext

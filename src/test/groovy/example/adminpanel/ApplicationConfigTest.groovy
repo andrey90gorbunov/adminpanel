@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Andrey Gorbunov
+ */
+
 package example.adminpanel
 
 import org.junit.jupiter.api.Test

@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Andrey Gorbunov
+ */
+
 package example.adminpanel.core.security.service;
 
 import org.springframework.beans.factory.annotation.Autowired;

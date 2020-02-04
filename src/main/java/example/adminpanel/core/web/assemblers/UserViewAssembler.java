@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Andrey Gorbunov
+ */
+
 package example.adminpanel.core.web.assemblers;
 
 import org.springframework.data.domain.Page;

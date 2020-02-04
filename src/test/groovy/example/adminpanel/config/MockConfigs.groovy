@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Andrey Gorbunov
+ */
+
 package example.adminpanel.config
 
 import example.adminpanel.admin.repository.AdminUserRepository

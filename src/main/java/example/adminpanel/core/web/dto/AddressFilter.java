@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Andrey Gorbunov
+ */
+
 package example.adminpanel.core.web.dto;
 
 import static org.springframework.util.StringUtils.isEmpty;

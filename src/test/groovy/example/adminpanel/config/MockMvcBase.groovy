@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Andrey Gorbunov
+ */
+
 package example.adminpanel.config
 
 import capital.scalable.restdocs.AutoDocumentation

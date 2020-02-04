@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Andrey Gorbunov
+ */
+
 package example.adminpanel.core.config;
 
 import org.springframework.session.data.mongo.config.annotation.web.http.EnableMongoHttpSession;
