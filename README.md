@@ -1,10 +1,10 @@
 AdminPanel API Documentation
 =
-+ [Create User](#Create);
-+ [Get User By ID](#GetId);
-+ [Get Users](#GetUsers);
-+ [Update User](#Update);
-+ [Delete User](#Delete);
++ [Create User](#Create)
++ [Get User By ID](#GetId)
++ [Get Users](#GetUsers)
++ [Update User](#Update)
++ [Delete User](#Delete)
 
 # <a name="Create"></a> Create User
 
