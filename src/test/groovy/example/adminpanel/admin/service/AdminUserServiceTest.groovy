@@ -41,24 +41,24 @@ class AdminUserServiceTest extends AbstractTestNGSpringContextTests {
   @DataProvider(name = 'userFilters')
   Object[][] userFilters() {
     return [
-      [new UserFilter(), 1],
-      [new UserFilter(firstName: "Ив"), 1],
-      [new UserFilter(firstName: "Же"), 0],
-      [new UserFilter(lastName: "Ив"), 1],
-      [new UserFilter(lastName: "Же"), 0],
+      [new UserFilter(), 2],
+      [new UserFilter(name: "Ив"), 2],
+      [new UserFilter(name: "Же"), 0],
+      [new UserFilter(name: "Гро"), 1],
       [new UserFilter(login: "iv"), 1],
       [new UserFilter(login: "ll"), 0],
-      [new UserFilter(birthday: toRange(Optional.of(LocalDate.of(1990, 5, 5)), Optional.empty())), 1],
-      [new UserFilter(birthday: toRange(Optional.of(LocalDate.of(1990, 5, 6)), Optional.empty())), 0],
+      [new UserFilter(birthday: toRange(Optional.of(LocalDate.of(1990, 5, 5)), Optional.empty())), 2],
+      [new UserFilter(birthday: toRange(Optional.of(LocalDate.of(1990, 5, 6)), Optional.empty())), 1],
+      [new UserFilter(birthday: toRange(Optional.of(LocalDate.of(1990, 5, 7)), Optional.empty())), 0],
       [new UserFilter(birthday: toRange(Optional.empty(), Optional.of(LocalDate.of(1990, 5, 5)))), 1],
       [new UserFilter(birthday: toRange(Optional.empty(), Optional.of(LocalDate.of(1990, 5, 4)))), 0],
-      [new UserFilter(birthday: toRange(Optional.of(LocalDate.of(1980, 1, 1)), Optional.of(LocalDate.of(2000, 1, 1)))), 1],
-      [new UserFilter(role: Role.ROLE_USER), 1],
+      [new UserFilter(birthday: toRange(Optional.of(LocalDate.of(1980, 1, 1)), Optional.of(LocalDate.of(2000, 1, 1)))), 2],
+      [new UserFilter(role: Role.ROLE_USER), 2],
       [new UserFilter(role: Role.ROLE_ADMIN), 0],
       [new UserFilter(addressFilter: new AddressFilter(country: "Russia", city: "Москва")), 1],
       [new UserFilter(addressFilter: new AddressFilter(country: "США", city: "Москва")), 0],
-      [new UserFilter(login: "iv", firstName: "Ив", lastName: "Иванов"), 1],
-      [new UserFilter(login: "iv", firstName: "Ив", lastName: "Петров"), 0]
+      [new UserFilter(login: "iv", name: "Ив"), 1],
+      [new UserFilter(login: "iv", name: "Петров"), 0]
     ] as Object[][]
   }
 
@@ -119,6 +119,7 @@ class AdminUserServiceTest extends AbstractTestNGSpringContextTests {
   @Test(dataProvider = "userFilters")
   void testFilterUser(UserFilter userFilter, Integer size) {
     adminUserService.createUser(getUserCreate())
+    adminUserService.createUser(getUserCreate2())
     assert adminUserService.getUsers(userFilter).content.size() == size
 
   }
@@ -126,11 +127,23 @@ class AdminUserServiceTest extends AbstractTestNGSpringContextTests {
   private static UserCreate getUserCreate() {
     new UserCreate(
       firstName: 'Иван',
-      lastName: 'Иванов',
+      lastName: 'Грозный',
       login: 'ivan123',
       password: 'ivan123',
       birthday: LocalDate.of(1990, 5, 5),
       address: new UserAddress(city: 'Москва', street: 'Ленина', house: 15, flat: 3),
+      aboutUser: 'Новый юзер'
+    )
+  }
+
+  private static UserCreate getUserCreate2() {
+    new UserCreate(
+      firstName: 'Евгений',
+      lastName: 'Иванов',
+      login: 'evg123',
+      password: 'evg123',
+      birthday: LocalDate.of(1990, 5, 6),
+      address: new UserAddress(city: 'Санкт-Петербург', street: 'Ленина', house: 15, flat: 3),
       aboutUser: 'Новый юзер'
     )
   }

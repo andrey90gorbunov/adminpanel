@@ -13,8 +13,8 @@ import example.adminpanel.core.dto.Role;
 
 public class UserFilter extends AbstractFilter {
     private String login;
-    private String firstName;
-    private String lastName;
+    private String name;
+
     private Role role;
     private Range<LocalDate> birthday;
     private AddressFilter addressFilter = new AddressFilter();
@@ -27,20 +27,12 @@ public class UserFilter extends AbstractFilter {
         this.login = login;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Role getRole() {

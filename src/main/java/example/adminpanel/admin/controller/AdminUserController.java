@@ -59,9 +59,7 @@ public class AdminUserController {
             @RequestParam(required = false)
                     String login,
             @RequestParam(required = false)
-                    String firstName,
-            @RequestParam(required = false)
-                    String lastName,
+                    String name,
             @RequestParam(required = false)
                     Role role,
             @RequestParam(name = "dateBefore", required = false)
@@ -79,8 +77,7 @@ public class AdminUserController {
     ) {
         UserFilter userFilter = new UserFilter();
         userFilter.setLogin(login);
-        userFilter.setFirstName(firstName);
-        userFilter.setLastName(lastName);
+        userFilter.setName(name);
         userFilter.setRole(role);
         userFilter.setPageable(pageable);
         userFilter.setBirthday(LocalDateUtils.toRange(Optional.ofNullable(dateBefore), Optional.ofNullable(dateAfter)));

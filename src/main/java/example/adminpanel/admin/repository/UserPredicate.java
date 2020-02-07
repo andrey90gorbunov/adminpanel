@@ -23,11 +23,11 @@ public class UserPredicate {
         if (!isEmpty(userFilter.getLogin())) {
             predicate = qUser.login.containsIgnoreCase(userFilter.getLogin());
         }
-        if (!isEmpty(userFilter.getFirstName())) {
-            predicate = setOrUpdatePredicate(predicate, qUser.firstName.startsWithIgnoreCase(userFilter.getFirstName()));
-        }
-        if (!isEmpty(userFilter.getLastName())) {
-            predicate = setOrUpdatePredicate(predicate, qUser.lastName.startsWithIgnoreCase(userFilter.getLastName()));
+        if (!isEmpty(userFilter.getName())) {
+            predicate = setOrUpdatePredicate(predicate,
+                                             qUser.firstName.startsWithIgnoreCase(userFilter.getName())
+                                                            .or(qUser.lastName.startsWithIgnoreCase(userFilter.getName()))
+            );
         }
         if (!isNull(userFilter.getRole())) {
             predicate = setOrUpdatePredicate(predicate, qUser.role.eq(userFilter.getRole()));

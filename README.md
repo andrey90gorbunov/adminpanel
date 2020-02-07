@@ -210,8 +210,7 @@ parameters.
 | Parameter  | Type   | Optional | Description                                 |
 | ---------- | ------ | -------- | ------------------------------------------- |
 | login      | String | true     |                                             |
-| firstName  | String | true     |                                             |
-| lastName   | String | true     |                                             |
+| name       | String | true     | firstName or lastName                       |
 | role       | String | true     | Must be one of \[ROLE\_ADMIN, ROLE\_USER\]. |
 | dateBefore | Object | true     |                                             |
 | dateAfter  | Object | true     |                                             |

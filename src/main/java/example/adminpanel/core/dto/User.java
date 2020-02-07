@@ -30,7 +30,6 @@ public class User implements Serializable {
     private String password;
     private String aboutUser;
     private UserAddress address;
-    @Indexed
     private Role role = Role.ROLE_USER;
 
     public User(String login, String password) {
