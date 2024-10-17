@@ -17,7 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <querydsl.version>4.1.4</querydsl.version>
-        <groovy.version>2.3.3</groovy.version>
+        <groovy.version>2.4.21</groovy.version>
         <testng.version>6.8</testng.version>
         <auto.restdoc.version>2.0.7</auto.restdoc.version>
     </properties>
